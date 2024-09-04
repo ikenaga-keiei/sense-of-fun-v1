@@ -4,6 +4,13 @@ import player from 'play-sound';
 
 const MEDIA_DIR = 'random';
 
+if (!fs.existsSync(MEDIA_DIR)) {
+  console.error(
+    `Directory ${MEDIA_DIR} does not exist. Please create it and add some sound files.`
+  );
+  process.exit(1);
+}
+
 const playerInstance = player();
 
 const playSound = (file: string) =>
